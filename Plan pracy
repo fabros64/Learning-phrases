@@ -5,3 +5,15 @@ Dodatkowe panel do rejestracji.
 Po poprawnym zalogowaniu przejście do "MAIN"
 Następnie opracowana zostanie główna szata graficzna aplikacji
 Dodanie właściwej funkcjonalnośći, działanie aplikacji
+
+1 [REJESTRACJA Panel]
+  co ma za zabierać:
+  -login (15 liter,cyfr, znakow)
+  -imie (15 liter)
+  -haslo (szyfrowane 10 znakow)
+  -email (30 znakow)
+  
+2 [LOGOWANIE Panel] 
+ Text area : login ; hasło
+ Guziki : Loguj ; Rejestracja ; Wyjdź
+ 
