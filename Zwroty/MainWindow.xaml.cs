@@ -35,7 +35,7 @@ namespace Zwroty
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NowaBaza nb = new NowaBaza(btnNowa, btnTEST);
+            NowaBaza nb = new NowaBaza(btnNowa, btnTEST, lista);
             nb.Left = this.Left + this.Width - nb.Width - (this.Width - nb.Width)/2;
             nb.Top = this.Top + this.Height - nb.Height - (this.Height - nb.Height)/2;
             nb.Show();
@@ -45,7 +45,6 @@ namespace Zwroty
             btnOtworz.IsEnabled = false;
             btnUsun.IsEnabled = false;
 
-           
         }
 
         private void btnOtworz_Click(object sender, RoutedEventArgs e)
@@ -55,6 +54,11 @@ namespace Zwroty
             baza.Top = this.Top;
             baza.Left = this.Left;
             baza.Show();
+        }
+
+        private void lista_ContextMenuClosing(object sender, ContextMenuEventArgs e)
+        {
+
         }
     }
 }

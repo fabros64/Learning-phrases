@@ -20,16 +20,29 @@ namespace Zwroty
     public partial class NowaBaza : Window
     {
         Button btnN1, btnN2;
-        public NowaBaza(Button btn1, Button btn2)
+        ListBox lista2;
+
+        public NowaBaza(Button btn1, Button btn2, ListBox lista)
         {
             InitializeComponent();
             btnN1 = btn1;
             btnN2 = btn2;
+
+            lista2 = lista;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ListBoxItem item = new ListBoxItem();
+            item.Content = txtNazwa.Text;
+            //Brush pedzel = new Brush();
+            //item.Background = "Gray";
+            lista2.Items.Add(item);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

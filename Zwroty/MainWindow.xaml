@@ -7,10 +7,7 @@
         mc:Ignorable="d"
         Title="Zwroty" Height="600" Width="800">
     <Grid Background="BlanchedAlmond" Margin="0,0,0,-48">
-        <ListBox HorizontalAlignment="Center" Height="403" Margin="60,75,64,0" VerticalAlignment="Top" Width="668" Background="LightGray" SelectionChanged="ListBox_SelectionChanged" BorderThickness="5" >
-            <ListBoxItem Background="#FFFDFDFD" Content="Zwroty pewne" FontSize="24" HorizontalContentAlignment="Center" Height="30"/>
-            <ListBoxItem Background="#FFFDFDFD" Content="Zaimki grzecznościowe i zwroty" FontSize="24" HorizontalContentAlignment="Center"/>
-
+        <ListBox x:Name="lista" HorizontalAlignment="Center" Height="403" Margin="60,75,64,0" VerticalAlignment="Top" Width="668" Background="LightGray" SelectionChanged="ListBox_SelectionChanged" BorderThickness="5" ContextMenuClosing="lista_ContextMenuClosing" FontSize="24" FontStretch="Medium">
         </ListBox>
         <Button x:Name="btnNowa" Content="Nowa baza" HorizontalAlignment="Left" Margin="446,494,0,0" VerticalAlignment="Top" Width="252" Height="51" Background="GreenYellow" Click="Button_Click"/>
         <Button x:Name="btnTEST" Content="TEST GENERALNY" HorizontalAlignment="Left" Margin="78,494,0,0" VerticalAlignment="Top" Width="256" Height="51" Background="CadetBlue"/>
