@@ -19,9 +19,21 @@ namespace Zwroty
     /// </summary>
     public partial class Baza : Window
     {
-        public Baza()
+        Window w1;
+        public Baza(Window window)
         {
             InitializeComponent();
+            w1 = window;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            w1.Left = this.Left;
+            w1.Top = this.Top;
+
+            this.Close();
+            
+            w1.Visibility = Visibility.Visible;
         }
     }
 }
