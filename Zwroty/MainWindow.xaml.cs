@@ -18,6 +18,8 @@ namespace Zwroty
     /// <summary>
     /// Logika interakcji dla klasy MainWindow.xaml
     /// </summary>
+    /// 
+
     public partial class MainWindow : Window
     {
 
@@ -49,7 +51,7 @@ namespace Zwroty
 
         private void btnOtworz_Click(object sender, RoutedEventArgs e)
         {
-            Baza baza = new Baza(this);
+            Baza baza = new Baza(this, lista);
             this.Visibility = Visibility.Collapsed;
             baza.Top = this.Top;
             baza.Left = this.Left;
@@ -59,6 +61,13 @@ namespace Zwroty
         private void lista_ContextMenuClosing(object sender, ContextMenuEventArgs e)
         {
 
+        }
+
+        private void btnUsun_Click(object sender, RoutedEventArgs e)
+        {
+            lista.Items.RemoveAt(lista.SelectedIndex);
+            btnUsun.IsEnabled = false;
+            btnOtworz.IsEnabled = false;
         }
     }
 }

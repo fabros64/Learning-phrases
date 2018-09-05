@@ -40,9 +40,17 @@ namespace Zwroty
         {
             ListBoxItem item = new ListBoxItem();
             item.Content = txtNazwa.Text;
-            //Brush pedzel = new Brush();
-            //item.Background = "Gray";
+            SolidColorBrush myBrush = new SolidColorBrush(Colors.FloralWhite);
+            item.Background = myBrush;
+            item.HorizontalAlignment = HorizontalAlignment.Stretch;
             lista2.Items.Add(item);
+            this.Close();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            btnN1.IsEnabled = true;
+            btnN2.IsEnabled = true;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

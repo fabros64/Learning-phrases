@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Zwroty"
         mc:Ignorable="d"
-        Title="Baza" Height="600" Width="800">
+        Title="Baza" Height="600" Width="800" ResizeMode="CanMinimize" Closed="Window_Closed">
     <Grid>
-        <Label Content="Baza" HorizontalAlignment="Left" Margin="290,10,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="txtBaza" Content="Baza" HorizontalAlignment="Left" Margin="319,10,0,0" VerticalAlignment="Top" FontSize="24"/>
         <ListBox HorizontalAlignment="Left" Height="409" Margin="10,68,0,0" VerticalAlignment="Top" Width="691"/>
         <Button Content="Usuń zwrot" HorizontalAlignment="Left" Margin="706,216,0,0" VerticalAlignment="Top" Width="76" Height="76"/>
         <Button Content="TEST" HorizontalAlignment="Left" Margin="34,502,0,0" VerticalAlignment="Top" Width="182" Height="45"/>
