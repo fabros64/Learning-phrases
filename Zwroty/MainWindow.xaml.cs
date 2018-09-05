@@ -48,6 +48,13 @@ namespace Zwroty
            
         }
 
-        
+        private void btnOtworz_Click(object sender, RoutedEventArgs e)
+        {
+            Baza baza = new Baza();
+            this.Visibility = Visibility.Collapsed;
+            baza.Top = this.Top;
+            baza.Left = this.Left;
+            baza.Show();
+        }
     }
 }
