@@ -20,11 +20,16 @@ namespace Zwroty
     public partial class Baza : Window
     {
         Window w1;
-        public Baza(Window window, ListBox lista)
+        Button b1, b2;
+
+        public Baza(Window window, ListBox lista, Button b1, Button b2)
         {
             InitializeComponent();
             w1 = window;
             txtBaza.Content = lista.Items.GetItemAt(lista.SelectedIndex).ToString().Substring(37);
+
+            this.b1 = b1;
+            this.b2 = b2;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -35,6 +40,8 @@ namespace Zwroty
             this.Close();
             
             w1.Visibility = Visibility.Visible;
+            b1.IsEnabled = true;
+            b2.IsEnabled = true;
         }
 
         private void Window_Closed(object sender, EventArgs e)

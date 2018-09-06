@@ -82,6 +82,8 @@
     <Compile Include="NowaBaza.xaml.cs">
       <DependentUpon>NowaBaza.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Poszczegolna_Baza.cs" />
+    <Compile Include="Zwrot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

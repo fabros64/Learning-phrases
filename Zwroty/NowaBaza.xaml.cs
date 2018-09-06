@@ -29,6 +29,11 @@ namespace Zwroty
             btnN2 = btn2;
 
             lista2 = lista;
+
+            btnZatwierdz.IsEnabled = false;
+            l1.Visibility = Visibility.Hidden;
+            l2.Visibility = Visibility.Hidden;
+            l3.Visibility = Visibility.Hidden;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -43,21 +48,56 @@ namespace Zwroty
             SolidColorBrush myBrush = new SolidColorBrush(Colors.FloralWhite);
             item.Background = myBrush;
             item.HorizontalAlignment = HorizontalAlignment.Stretch;
-            lista2.Items.Add(item);
-            this.Close();
+
+            if (txtNazwa.Text == "")
+                l3.Visibility = Visibility.Visible;
+
+            else if (txtNazwa.Text != "")
+            {
+                l3.Visibility = Visibility.Hidden;
+                lista2.Items.Add(item);
+                this.Close();
+            }
         }
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            btnN1.IsEnabled = true;
-            btnN2.IsEnabled = true;
+            btnN1.Visibility = Visibility.Visible;
+            btnN2.Visibility = Visibility.Visible;
+        }
+
+        private void btnDodaj_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtPL.Text != "" && txtENG.Text != "")
+            {
+                btnZatwierdz.IsEnabled = true;
+                l1.Visibility = Visibility.Hidden;
+                l2.Visibility = Visibility.Hidden;
+            }
+
+            else if (txtPL.Text != "" && txtENG.Text == "")
+                l1.Visibility = Visibility.Hidden;
+
+            else if (txtPL.Text == "" && txtENG.Text != "")
+                l2.Visibility = Visibility.Hidden;
+
+            else if(txtPL.Text == "" && txtENG.Text == "")
+            {
+                l1.Visibility = Visibility.Visible;
+                l2.Visibility = Visibility.Visible;
+            }
+
+            else if (txtPL.Text == "")
+                l1.Visibility = Visibility.Visible;
+            else if (txtENG.Text == "")
+                l2.Visibility = Visibility.Visible;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            btnN1.IsEnabled = true;
-            btnN2.IsEnabled = true;
+            btnN1.Visibility = Visibility.Visible;
+            btnN2.Visibility = Visibility.Visible;
         }
     }
 }
