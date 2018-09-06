@@ -69,6 +69,7 @@
     <Compile Include="Baza.xaml.cs">
       <DependentUpon>Baza.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Bazy.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

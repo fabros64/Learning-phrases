@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zwroty
 {
-    class Poszczegolna_Baza
+    public class Poszczegolna_Baza
     {
         string nazwa;
         List <Zwrot> zwroty;
@@ -15,6 +15,11 @@ namespace Zwroty
         public Poszczegolna_Baza(string nazwa)
         {
             this.nazwa = nazwa;
+            zwroty = new List<Zwrot>();
+        }
+
+        public Poszczegolna_Baza()
+        {
             zwroty = new List<Zwrot>();
         }
 
@@ -32,6 +37,11 @@ namespace Zwroty
         public List<Zwrot> getZwroty()
         {
             return zwroty;
+        }
+
+        public void setNazwa(string nazwa)
+        {
+            this.nazwa = nazwa;
         }
 
     }

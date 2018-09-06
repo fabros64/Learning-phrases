@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zwroty
 {
-    class Zwrot
+    public class Zwrot
     {
         string PL, ENG;
 

@@ -19,14 +19,17 @@ namespace Zwroty
     /// Logika interakcji dla klasy MainWindow.xaml
     /// </summary>
     /// 
+                            
+    
 
     public partial class MainWindow : Window
     {
+        //internal static List<Poszczegolna_Baza> Bazy { get => bazy; set => bazy = value; }
 
         public MainWindow()
         {
             InitializeComponent();
-          
+            
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

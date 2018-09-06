@@ -21,6 +21,7 @@ namespace Zwroty
     {
         Button btnN1, btnN2;
         ListBox lista2;
+        Poszczegolna_Baza baza = new Poszczegolna_Baza();
 
         public NowaBaza(Button btn1, Button btn2, ListBox lista)
         {
@@ -57,13 +58,22 @@ namespace Zwroty
                 l3.Visibility = Visibility.Hidden;
                 lista2.Items.Add(item);
                 this.Close();
+
+                baza.setNazwa(txtNazwa.Text);
+
+                App.bazy.Dodaj_Baze(baza);
             }
+
+            btnN1.IsEnabled = true;
+            btnN2.IsEnabled = true;
+
+            
         }
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            btnN1.Visibility = Visibility.Visible;
-            btnN2.Visibility = Visibility.Visible;
+            btnN1.IsEnabled = true;
+            btnN2.IsEnabled = true;
         }
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
@@ -73,6 +83,20 @@ namespace Zwroty
                 btnZatwierdz.IsEnabled = true;
                 l1.Visibility = Visibility.Hidden;
                 l2.Visibility = Visibility.Hidden;
+
+
+                ListBoxItem item = new ListBoxItem();
+                item.Content = txtPL.Text + " - " + txtENG.Text;
+                SolidColorBrush myBrush = new SolidColorBrush(Colors.FloralWhite);
+                item.Background = myBrush;
+                item.HorizontalAlignment = HorizontalAlignment.Stretch;
+                listZwroty.Items.Add(item);
+
+                txtPL.Text = "";
+                txtENG.Text = "";
+
+                
+                baza.Dodaj_Zwrot(txtPL.Text, txtENG.Text);
             }
 
             else if (txtPL.Text != "" && txtENG.Text == "")
@@ -93,11 +117,23 @@ namespace Zwroty
                 l2.Visibility = Visibility.Visible;
         }
 
+        private void listZwroty_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            btnUsun.IsEnabled = true;
+        }
+
+        private void btnUsun_Click(object sender, RoutedEventArgs e)
+        {
+            listZwroty.Items.RemoveAt(listZwroty.SelectedIndex);
+            btnUsun.IsEnabled = false;
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            btnN1.Visibility = Visibility.Visible;
-            btnN2.Visibility = Visibility.Visible;
+            btnN1.IsEnabled = true;
+            btnN2.IsEnabled = true;
+
         }
     }
 }
