@@ -57,11 +57,12 @@ namespace Zwroty
             {
                 l3.Visibility = Visibility.Hidden;
                 lista2.Items.Add(item);
-                this.Close();
 
                 baza.setNazwa(txtNazwa.Text);
 
                 App.bazy.Dodaj_Baze(baza);
+
+                this.Close();
             }
 
             btnN1.IsEnabled = true;
@@ -92,11 +93,12 @@ namespace Zwroty
                 item.HorizontalAlignment = HorizontalAlignment.Stretch;
                 listZwroty.Items.Add(item);
 
+                baza.Dodaj_Zwrot(txtPL.Text, txtENG.Text);
+
                 txtPL.Text = "";
                 txtENG.Text = "";
 
-                
-                baza.Dodaj_Zwrot(txtPL.Text, txtENG.Text);
+               
             }
 
             else if (txtPL.Text != "" && txtENG.Text == "")
@@ -124,6 +126,7 @@ namespace Zwroty
 
         private void btnUsun_Click(object sender, RoutedEventArgs e)
         {
+            baza.getZwroty().RemoveAt(listZwroty.SelectedIndex);
             listZwroty.Items.RemoveAt(listZwroty.SelectedIndex);
             btnUsun.IsEnabled = false;
         }

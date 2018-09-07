@@ -8,10 +8,10 @@
         Title="Baza" Height="600" Width="800" ResizeMode="CanMinimize" Closed="Window_Closed">
     <Grid>
         <Label x:Name="txtBaza" Content="Baza" HorizontalAlignment="Left" Margin="319,10,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <ListBox HorizontalAlignment="Left" Height="409" Margin="51,68,0,0" VerticalAlignment="Top" Width="650"/>
-        <Button Content="Usuń zwrot" HorizontalAlignment="Left" Margin="706,216,0,0" VerticalAlignment="Top" Width="76" Height="56"/>
-        <Button Content="TEST" HorizontalAlignment="Left" Margin="34,502,0,0" VerticalAlignment="Top" Width="182" Height="45"/>
-        <Button Content="Dodaj nowy zwrot" HorizontalAlignment="Left" Margin="368,502,0,0" VerticalAlignment="Top" Width="236" Height="45"/>
+        <ListBox x:Name="listBaza" HorizontalAlignment="Left" Height="409" Margin="51,68,0,0" VerticalAlignment="Top" Width="650" SelectionChanged="listBaza_SelectionChanged"/>
+        <Button x:Name="btnUsun2" Content="Usuń zwrot" HorizontalAlignment="Left" Margin="706,216,0,0" VerticalAlignment="Top" Width="76" Height="56" IsEnabled="False" Click="btnUsun2_Click"/>
+        <Button Content="TEST" HorizontalAlignment="Left" Margin="34,502,0,0" VerticalAlignment="Top" Width="182" Height="45" IsEnabled="False"/>
+        <Button Content="Dodaj nowy zwrot" HorizontalAlignment="Left" Margin="368,502,0,0" VerticalAlignment="Top" Width="236" Height="45" Click="Button_Click_1"/>
         <Button Content="Wróć" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Height="42" Click="Button_Click"/>
 
     </Grid>

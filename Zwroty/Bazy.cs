@@ -19,6 +19,11 @@ namespace Zwroty
         {
             bazy.Add(baza);
         }
+
+        public List<Poszczegolna_Baza> getBazy()
+        {
+            return bazy;
+        }
             
     }
 }

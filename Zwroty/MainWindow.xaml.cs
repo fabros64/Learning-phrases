@@ -68,6 +68,7 @@ namespace Zwroty
 
         private void btnUsun_Click(object sender, RoutedEventArgs e)
         {
+            App.bazy.getBazy().RemoveAt(lista.SelectedIndex);
             lista.Items.RemoveAt(lista.SelectedIndex);
             btnUsun.IsEnabled = false;
             btnOtworz.IsEnabled = false;

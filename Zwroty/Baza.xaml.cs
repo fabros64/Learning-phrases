@@ -21,15 +21,20 @@ namespace Zwroty
     {
         Window w1;
         Button b1, b2;
+        ListBox lista;
 
         public Baza(Window window, ListBox lista, Button b1, Button b2)
         {
+            this.lista = lista;
             InitializeComponent();
             w1 = window;
             txtBaza.Content = lista.Items.GetItemAt(lista.SelectedIndex).ToString().Substring(37);
 
             this.b1 = b1;
             this.b2 = b2;
+
+            for(int i=0; i < App.bazy.getBazy().ElementAt<Poszczegolna_Baza>(lista.SelectedIndex).getZwroty().Count; i++)
+                listBaza.Items.Add(App.bazy.getBazy().ElementAt<Poszczegolna_Baza>(lista.SelectedIndex).getZwroty().ElementAt<Zwrot>(i).konkatenacja());
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -42,6 +47,29 @@ namespace Zwroty
             w1.Visibility = Visibility.Visible;
             b1.IsEnabled = true;
             b2.IsEnabled = true;
+        }
+
+        private void listBaza_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            btnUsun2.IsEnabled = true;
+        }
+
+        private void btnUsun2_Click(object sender, RoutedEventArgs e)
+        {
+            btnUsun2.IsEnabled = false;
+
+           App.bazy.getBazy().ElementAt<Poszczegolna_Baza>(lista.SelectedIndex).getZwroty().RemoveAt(listBaza.SelectedIndex);
+            listBaza.Items.RemoveAt(listBaza.SelectedIndex);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            //App.bazy.getBazy().ElementAt<Poszczegolna_Baza>(lista.SelectedIndex).getZwroty().RemoveAt(listBaza.SelectedIndex);
+            //listBaza.Items.Add();
+            DodawanieZwrotu nowyZwrot = new DodawanieZwrotu();
+
+
+            nowyZwrot.Show();
         }
 
         private void Window_Closed(object sender, EventArgs e)
