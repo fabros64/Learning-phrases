@@ -22,6 +22,7 @@ namespace Zwroty
         Window w1;
         Button b1, b2;
         ListBox lista;
+        Poszczegolna_Baza baza;
 
         public Baza(Window window, ListBox lista, Button b1, Button b2)
         {
@@ -33,7 +34,9 @@ namespace Zwroty
             this.b1 = b1;
             this.b2 = b2;
 
-            for(int i=0; i < App.bazy.getBazy().ElementAt<Poszczegolna_Baza>(lista.SelectedIndex).getZwroty().Count; i++)
+            baza = App.bazy.getBazy().ElementAt<Poszczegolna_Baza>(lista.SelectedIndex);
+
+            for (int i=0; i < App.bazy.getBazy().ElementAt<Poszczegolna_Baza>(lista.SelectedIndex).getZwroty().Count; i++)
                 listBaza.Items.Add(App.bazy.getBazy().ElementAt<Poszczegolna_Baza>(lista.SelectedIndex).getZwroty().ElementAt<Zwrot>(i).konkatenacja());
         }
 
@@ -42,9 +45,11 @@ namespace Zwroty
             w1.Left = this.Left;
             w1.Top = this.Top;
 
+            w1.Visibility = Visibility.Visible;
+
             this.Close();
             
-            w1.Visibility = Visibility.Visible;
+            
             b1.IsEnabled = true;
             b2.IsEnabled = true;
         }
@@ -66,13 +71,18 @@ namespace Zwroty
         {
             //App.bazy.getBazy().ElementAt<Poszczegolna_Baza>(lista.SelectedIndex).getZwroty().RemoveAt(listBaza.SelectedIndex);
             //listBaza.Items.Add();
-            DodawanieZwrotu nowyZwrot = new DodawanieZwrotu();
+            DodawanieZwrotu nowyZwrot = new DodawanieZwrotu(listBaza, baza, btnDodawanie, this);
 
-
+            btnDodawanie.IsEnabled = false;
             nowyZwrot.Show();
         }
 
-        private void Window_Closed(object sender, EventArgs e)
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            w1.Visibility = Visibility.Visible;
+        }
+
+        private void Window_Closing(object sender, EventArgs e)
         {
             w1.Visibility = Visibility.Visible;
         }

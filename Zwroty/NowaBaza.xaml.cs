@@ -22,6 +22,7 @@ namespace Zwroty
         Button btnN1, btnN2;
         ListBox lista2;
         Poszczegolna_Baza baza = new Poszczegolna_Baza();
+        
 
         public NowaBaza(Button btn1, Button btn2, ListBox lista)
         {
@@ -35,6 +36,8 @@ namespace Zwroty
             l1.Visibility = Visibility.Hidden;
             l2.Visibility = Visibility.Hidden;
             l3.Visibility = Visibility.Hidden;
+
+            
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -75,6 +78,7 @@ namespace Zwroty
         {
             btnN1.IsEnabled = true;
             btnN2.IsEnabled = true;
+            
         }
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
@@ -98,16 +102,22 @@ namespace Zwroty
                 txtPL.Text = "";
                 txtENG.Text = "";
 
-               
+
             }
 
             else if (txtPL.Text != "" && txtENG.Text == "")
+            {
                 l1.Visibility = Visibility.Hidden;
+                l2.Visibility = Visibility.Visible;
+            }
 
             else if (txtPL.Text == "" && txtENG.Text != "")
+            {
                 l2.Visibility = Visibility.Hidden;
+                l1.Visibility = Visibility.Visible;
+            }
 
-            else if(txtPL.Text == "" && txtENG.Text == "")
+            else if (txtPL.Text == "" && txtENG.Text == "")
             {
                 l1.Visibility = Visibility.Visible;
                 l2.Visibility = Visibility.Visible;

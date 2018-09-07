@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Zwroty"
         mc:Ignorable="d"
-        Title="DodawanieZwrotu" Height="200" Width="640" ResizeMode="NoResize">
+        Title="DodawanieZwrotu" Height="200" Width="640" ResizeMode="NoResize" Closing="Window_Closing">
     <Grid>
-        
+        <TextBox x:Name="txtPL" HorizontalAlignment="Left" Height="33" Margin="28,73,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="270"/>
+        <TextBox x:Name="txtENG" HorizontalAlignment="Left" Height="33" Margin="333,73,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="270"/>
+        <Label Content="PL" HorizontalAlignment="Left" Margin="134,42,0,0" VerticalAlignment="Top"/>
+        <Label Content="ENG" HorizontalAlignment="Left" Margin="454,42,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.152,0.587"/>
+        <Button x:Name="btnDodaj" Content="Dodaj" HorizontalAlignment="Left" Margin="280,134,0,0" VerticalAlignment="Top" Width="75" Click="btnDodaj_Click"/>
+        <Button Content="Anuluj" HorizontalAlignment="Left" Margin="540,134,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.761,0.525" Click="Button_Click"/>
+        <Label x:Name="warning1" Content="To pole nie może być puste!" HorizontalAlignment="Left" Margin="74,106,0,0" VerticalAlignment="Top" Foreground="Red"/>
+        <Label x:Name="warning2" Content="To pole nie może być puste!" HorizontalAlignment="Left" Margin="386,106,0,0" VerticalAlignment="Top" Foreground="Red"/>
+
     </Grid>
 </Window>
