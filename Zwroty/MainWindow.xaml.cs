@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,10 +27,48 @@ namespace Zwroty
     {
         //internal static List<Poszczegolna_Baza> Bazy { get => bazy; set => bazy = value; }
 
+        FileStream stream;
+        StreamWriter writer;
+        StreamReader reader;
+
         public MainWindow()
         {
             InitializeComponent();
-            
+
+            try
+            {
+                stream = new FileStream("bazy" + ".dat", FileMode.Open);
+                
+            }
+            catch
+            {
+                stream = new FileStream("bazy" + ".dat", FileMode.Create);
+                
+            }
+
+            writer = new StreamWriter(stream);
+            reader = new StreamReader(stream);
+
+
+            while(!reader.EndOfStream)
+            {
+
+                ListBoxItem item = new ListBoxItem();
+                item.Content = reader.ReadLine();
+                SolidColorBrush myBrush = new SolidColorBrush(Colors.FloralWhite);
+                item.Background = myBrush;
+                item.HorizontalAlignment = HorizontalAlignment.Stretch;
+
+                lista.Items.Add(item);
+
+                Poszczegolna_Baza baza = new Poszczegolna_Baza(item.Content.ToString());
+
+                App.bazy.Dodaj_Baze(baza);
+
+                stream.Position++;
+            }
+
+            stream.Position = stream.Length;
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -40,7 +79,7 @@ namespace Zwroty
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NowaBaza nb = new NowaBaza(btnNowa, btnTEST, lista);
+            NowaBaza nb = new NowaBaza(btnNowa, btnTEST, lista, btnOtworz, btnUsun, writer);
             nb.Left = this.Left + this.Width - nb.Width - (this.Width - nb.Width)/2;
             nb.Top = this.Top + this.Height - nb.Height - (this.Height - nb.Height)/2;
             nb.Show();
@@ -72,6 +111,12 @@ namespace Zwroty
             lista.Items.RemoveAt(lista.SelectedIndex);
             btnUsun.IsEnabled = false;
             btnOtworz.IsEnabled = false;
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            writer.Close();
+            reader.Close();
         }
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace Zwroty
 {
@@ -22,13 +23,18 @@ namespace Zwroty
         Button btnN1, btnN2;
         ListBox lista2;
         Poszczegolna_Baza baza = new Poszczegolna_Baza();
+        Button otworz, usun;
+        StreamWriter writer;
         
 
-        public NowaBaza(Button btn1, Button btn2, ListBox lista)
+        public NowaBaza(Button btn1, Button btn2, ListBox lista, Button otworz, Button usun, StreamWriter writer)
         {
             InitializeComponent();
             btnN1 = btn1;
             btnN2 = btn2;
+            this.otworz = otworz;
+            this.usun = usun;
+            this.writer = writer;
 
             lista2 = lista;
 
@@ -64,6 +70,11 @@ namespace Zwroty
                 baza.setNazwa(txtNazwa.Text);
 
                 App.bazy.Dodaj_Baze(baza);
+                
+
+
+                writer.WriteLine(txtNazwa.Text);
+                
 
                 this.Close();
             }
@@ -78,6 +89,7 @@ namespace Zwroty
         {
             btnN1.IsEnabled = true;
             btnN2.IsEnabled = true;
+
             
         }
 

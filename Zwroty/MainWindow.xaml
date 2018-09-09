@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Zwroty"
         mc:Ignorable="d"
-        Title="Zwroty" Height="600" Width="800" ResizeMode="CanMinimize">
+        Title="Zwroty" Height="600" Width="800" ResizeMode="CanMinimize" Closed="Window_Closed">
     <Grid Background="BlanchedAlmond" Margin="0,0,0,-48">
         <ListBox x:Name="lista" HorizontalAlignment="Center" Height="403" Margin="60,75,64,0" VerticalAlignment="Top" Width="668" Background="LightGray" SelectionChanged="ListBox_SelectionChanged" BorderThickness="5" ContextMenuClosing="lista_ContextMenuClosing" FontSize="24" FontStretch="Medium">
         </ListBox>
