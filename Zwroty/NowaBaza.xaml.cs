@@ -70,10 +70,10 @@ namespace Zwroty
                 baza.setNazwa(txtNazwa.Text);
 
                 App.bazy.Dodaj_Baze(baza);
-                
 
 
-                writer.WriteLine(txtNazwa.Text);
+
+               writer.WriteLine(txtNazwa.Text);
                 
 
                 this.Close();

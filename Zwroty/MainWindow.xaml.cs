@@ -111,12 +111,22 @@ namespace Zwroty
             lista.Items.RemoveAt(lista.SelectedIndex);
             btnUsun.IsEnabled = false;
             btnOtworz.IsEnabled = false;
+
         }
 
         private void Window_Closed(object sender, EventArgs e)
         {
             writer.Close();
             reader.Close();
+
+            stream = new FileStream("bazy" + ".dat", FileMode.Truncate);
+            writer = new StreamWriter(stream);
+
+            foreach (var item in App.bazy.getBazy())
+                writer.WriteLine(item.getNazwa());
+
+            writer.Close();
+            
         }
     }
 }
