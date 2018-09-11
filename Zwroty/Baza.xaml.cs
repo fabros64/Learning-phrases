@@ -41,6 +41,8 @@ namespace Zwroty
 
             for (int i=0; i < App.bazy.getBazy().ElementAt<Poszczegolna_Baza>(lista.SelectedIndex).getZwroty().Count; i++)
                 listBaza.Items.Add(App.bazy.getBazy().ElementAt<Poszczegolna_Baza>(lista.SelectedIndex).getZwroty().ElementAt<Zwrot>(i).konkatenacja());
+
+            baza = App.bazy.getBazy().ElementAt<Poszczegolna_Baza>(lista.SelectedIndex);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -69,7 +71,17 @@ namespace Zwroty
            App.bazy.getBazy().ElementAt<Poszczegolna_Baza>(lista.SelectedIndex).getZwroty().RemoveAt(listBaza.SelectedIndex);
             listBaza.Items.RemoveAt(listBaza.SelectedIndex);
 
+            FileStream stream2 = new FileStream(baza.getNazwa() + ".dat", FileMode.Truncate);
+            StreamWriter writer2 = new StreamWriter(stream2);
 
+            foreach (var item in baza.getZwroty())
+            {
+                writer2.WriteLine(item.getPL());
+                writer2.WriteLine(item.getENG());
+            }
+
+            writer2.Close();
+            stream2.Close();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
