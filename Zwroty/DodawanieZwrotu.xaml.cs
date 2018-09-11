@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,8 +24,9 @@ namespace Zwroty
         Poszczegolna_Baza baza;
         Button dodawanie;
         Window okno;
+        StreamWriter writer;
 
-        public DodawanieZwrotu(ListBox lista, Poszczegolna_Baza baza, Button dodawanie, Window okno)
+        public DodawanieZwrotu(ListBox lista, Poszczegolna_Baza baza, Button dodawanie, Window okno, StreamWriter writer)
         {
             InitializeComponent();
             warning1.Visibility = Visibility.Collapsed;
@@ -34,6 +36,7 @@ namespace Zwroty
             this.baza = baza;
             this.dodawanie = dodawanie;
             this.okno = okno;
+            this.writer = writer;
 
             this.Left = okno.Left + 65;
             this.Top = okno.Top + okno.Height / 2;
@@ -57,6 +60,24 @@ namespace Zwroty
 
                 baza.Dodaj_Zwrot(txtPL.Text, txtENG.Text);
 
+                FileStream stream2 = new FileStream(baza.getNazwa() + ".dat", FileMode.OpenOrCreate);
+                StreamWriter writer2 = new StreamWriter(stream2);
+
+                stream2.Position = stream2.Length;
+
+                writer2.WriteLine(txtPL.Text);
+                writer2.WriteLine(txtENG.Text);
+
+                //foreach (var item2 in baza.getZwroty())
+                //{
+                //    writer.WriteLine(item2.getPL());
+                //    writer.WriteLine(item2.getENG());
+                //}
+
+
+                writer2.Close();
+                stream2.Close();
+                
                 this.Close();
             }
 

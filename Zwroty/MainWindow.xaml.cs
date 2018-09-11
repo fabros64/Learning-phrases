@@ -63,10 +63,38 @@ namespace Zwroty
 
                 Poszczegolna_Baza baza = new Poszczegolna_Baza(item.Content.ToString());
 
+                
+
+                FileStream stream2 = new FileStream(item.Content.ToString() + ".dat", FileMode.Open);
+                StreamReader reader2 = new StreamReader(stream2);
+
+                int i = 1;
+                Zwrot zwrot = new Zwrot();
+
+                while (!reader2.EndOfStream)
+                {
+                    if (i % 2 != 0)
+                    {
+                        zwrot = new Zwrot();
+                        zwrot.setPL(reader2.ReadLine());
+                    }
+
+                    else if (i % 2 == 0)
+                    {
+                        zwrot.setENG(reader2.ReadLine());
+                        baza.Dodaj_Zwrot(zwrot);
+                    }
+
+                    stream2.Position++;
+                    i++;
+                }
+
                 App.bazy.Dodaj_Baze(baza);
 
                 stream.Position++;
             }
+
+            
 
             stream.Position = stream.Length;
         }
@@ -93,7 +121,7 @@ namespace Zwroty
 
         private void btnOtworz_Click(object sender, RoutedEventArgs e)
         {
-            Baza baza = new Baza(this, lista, btnNowa, btnTEST);
+            Baza baza = new Baza(this, lista, btnNowa, btnTEST, writer);
             this.Visibility = Visibility.Collapsed;
             baza.Top = this.Top;
             baza.Left = this.Left;

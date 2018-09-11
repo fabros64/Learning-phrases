@@ -34,6 +34,11 @@ namespace Zwroty
             zwroty.Add(zwrot);
         }
 
+        public void Dodaj_Zwrot(Zwrot zwrot)
+        {
+            zwroty.Add(zwrot);
+        }
+
         public List<Zwrot> getZwroty()
         {
             return zwroty;

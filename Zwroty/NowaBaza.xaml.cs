@@ -74,9 +74,19 @@ namespace Zwroty
 
 
                writer.WriteLine(txtNazwa.Text);
-                
 
+                FileStream stream2 = new FileStream(txtNazwa.Text + ".dat", FileMode.OpenOrCreate);
+                writer = new StreamWriter(stream2);
+
+                foreach (var item2 in baza.getZwroty())
+                {
+                    writer.WriteLine(item2.getPL());
+                    writer.WriteLine(item2.getENG());
+                }
+                                    
                 this.Close();
+                writer.Close();
+                stream2.Close();
             }
 
             btnN1.IsEnabled = true;

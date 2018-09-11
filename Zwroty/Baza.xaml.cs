@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,9 +24,11 @@ namespace Zwroty
         Button b1, b2;
         ListBox lista;
         Poszczegolna_Baza baza;
+        StreamWriter writer;
 
-        public Baza(Window window, ListBox lista, Button b1, Button b2)
+        public Baza(Window window, ListBox lista, Button b1, Button b2, StreamWriter writer)
         {
+            this.writer = writer;
             this.lista = lista;
             InitializeComponent();
             w1 = window;
@@ -65,13 +68,15 @@ namespace Zwroty
 
            App.bazy.getBazy().ElementAt<Poszczegolna_Baza>(lista.SelectedIndex).getZwroty().RemoveAt(listBaza.SelectedIndex);
             listBaza.Items.RemoveAt(listBaza.SelectedIndex);
+
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             //App.bazy.getBazy().ElementAt<Poszczegolna_Baza>(lista.SelectedIndex).getZwroty().RemoveAt(listBaza.SelectedIndex);
             //listBaza.Items.Add();
-            DodawanieZwrotu nowyZwrot = new DodawanieZwrotu(listBaza, baza, btnDodawanie, this);
+            DodawanieZwrotu nowyZwrot = new DodawanieZwrotu(listBaza, baza, btnDodawanie, this, writer);
 
             btnDodawanie.IsEnabled = false;
             nowyZwrot.Show();
@@ -80,11 +85,13 @@ namespace Zwroty
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             w1.Visibility = Visibility.Visible;
+           
         }
 
         private void Window_Closing(object sender, EventArgs e)
         {
             w1.Visibility = Visibility.Visible;
+           
         }
     }
 }
