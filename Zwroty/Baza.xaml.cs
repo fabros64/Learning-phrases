@@ -25,9 +25,11 @@ namespace Zwroty
         ListBox lista;
         Poszczegolna_Baza baza;
         StreamWriter writer;
+        Window w2;
 
         public Baza(Window window, ListBox lista, Button b1, Button b2, StreamWriter writer)
         {
+            
             this.writer = writer;
             this.lista = lista;
             InitializeComponent();
@@ -53,8 +55,9 @@ namespace Zwroty
             w1.Visibility = Visibility.Visible;
 
             this.Close();
-            
-            
+
+            //this.Content = w1.Content;
+
             b1.IsEnabled = true;
             b2.IsEnabled = true;
         }
@@ -98,6 +101,18 @@ namespace Zwroty
         {
             w1.Visibility = Visibility.Visible;
            
+        }
+
+        
+
+        private void btnTEST_Click(object sender, RoutedEventArgs e)
+        {
+            TEST_WEWNETRZNY test = new TEST_WEWNETRZNY();
+
+            test.Left = this.Left + this.Width / 13 + 2;
+            test.Top = this.Top + this.Height / 6;
+
+            test.Show();
         }
 
         private void Window_Closing(object sender, EventArgs e)

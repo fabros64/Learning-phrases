@@ -58,6 +58,7 @@ namespace Zwroty
             SolidColorBrush myBrush = new SolidColorBrush(Colors.FloralWhite);
             item.Background = myBrush;
             item.HorizontalAlignment = HorizontalAlignment.Stretch;
+            lista2.FontSize = 20;
 
             if (txtNazwa.Text == "")
                 l3.Visibility = Visibility.Visible;
@@ -100,7 +101,7 @@ namespace Zwroty
             btnN1.IsEnabled = true;
             btnN2.IsEnabled = true;
 
-            
+            this.Close();
         }
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)

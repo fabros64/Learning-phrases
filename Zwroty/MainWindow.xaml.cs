@@ -30,9 +30,11 @@ namespace Zwroty
         FileStream stream;
         StreamWriter writer;
         StreamReader reader;
+        
 
         public MainWindow()
         {
+            
             InitializeComponent();
 
             try
@@ -92,11 +94,15 @@ namespace Zwroty
                 App.bazy.Dodaj_Baze(baza);
 
                 stream.Position++;
+
+                
             }
 
             
 
             stream.Position = stream.Length;
+
+            
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -126,6 +132,8 @@ namespace Zwroty
             baza.Top = this.Top;
             baza.Left = this.Left;
             baza.Show();
+            
+            
         }
 
         private void lista_ContextMenuClosing(object sender, ContextMenuEventArgs e)
@@ -154,7 +162,10 @@ namespace Zwroty
                 writer.WriteLine(item.getNazwa());
 
             writer.Close();
-            
+            stream.Close();
+
+            this.Close();
+
         }
     }
 }
