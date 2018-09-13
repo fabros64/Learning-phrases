@@ -54,6 +54,16 @@ namespace Zwroty
             ile++;
             bledy = new List<int>();
             bledySTR = new List<string>();
+
+            CountPytania.Content = "Pytanie " + 1 + " z " + baza.getZwroty().Count;
+        }
+
+        public TEST(Window window)
+        {
+            InitializeComponent();
+            this.window = window;
+
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -65,6 +75,8 @@ namespace Zwroty
         {
             int pkt = 0;
             wynikowe[i] = sprENG.Text;
+
+            CountPytania.Content = "Pytanie " + (ile+1) + " z " + baza.getZwroty().Count;
 
             //if (baza.getZwroty().ElementAt(i).getENG().ToUpper().Equals(wynikowe[i].ToUpper()))
             //    pkt++;

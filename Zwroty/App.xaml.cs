@@ -14,5 +14,7 @@ namespace Zwroty
     public partial class App : Application
     {
         public static Bazy bazy = new Bazy();
+
+        public static bool exit = false;
     }
 }

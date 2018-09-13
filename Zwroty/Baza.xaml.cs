@@ -20,13 +20,13 @@ namespace Zwroty
     /// </summary>
     public partial class Baza : Window
     {
-        Window w1;
+        MainWindow w1;
         Button b1, b2;
         ListBox lista;
         Poszczegolna_Baza baza;
         StreamWriter writer;
 
-        public Baza(Window window, ListBox lista, Button b1, Button b2, StreamWriter writer)
+        public Baza(MainWindow window, ListBox lista, Button b1, Button b2, StreamWriter writer)
         {
             
             this.writer = writer;
@@ -59,6 +59,8 @@ namespace Zwroty
 
             b1.IsEnabled = true;
             b2.IsEnabled = true;
+
+            App.exit = false;
         }
 
         private void listBaza_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -97,8 +99,7 @@ namespace Zwroty
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            w1.Visibility = Visibility.Visible;
+        {           
            
         }
 
@@ -115,10 +116,15 @@ namespace Zwroty
             this.Visibility = Visibility.Collapsed;
         }
 
-        private void Window_Closing(object sender, EventArgs e)
+        private void Window_Closed(object sender, EventArgs e)
         {
             w1.Visibility = Visibility.Visible;
-           
+
+        }
+
+        private void Window_Closing(object sender, EventArgs e)
+        {
+            
         }
     }
 }

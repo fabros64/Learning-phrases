@@ -106,6 +106,54 @@ namespace Zwroty
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
+            Dodawanie();
+        }
+
+        private void listZwroty_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            btnUsun.IsEnabled = true;
+        }
+
+        private void Grid_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Dodawanie();
+            }
+        }
+
+        private void btnUsun_Click(object sender, RoutedEventArgs e)
+        {
+            baza.getZwroty().RemoveAt(listZwroty.SelectedIndex);
+            listZwroty.Items.RemoveAt(listZwroty.SelectedIndex);
+            btnUsun.IsEnabled = false;
+        }
+
+        private void btnRev_Click(object sender, RoutedEventArgs e)
+        {
+            if (lPL.Content.ToString().Equals("PL"))
+            {
+                lPL.Content = "ENG";
+                lENG.Content = "PL";
+            }
+
+            else
+            {
+                lPL.Content = "PL";
+                lENG.Content = "ENG";
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            btnN1.IsEnabled = true;
+            btnN2.IsEnabled = true;
+
+        }
+
+        private void Dodawanie()
+        {
             if (txtPL.Text != "" && txtENG.Text != "")
             {
                 btnZatwierdz.IsEnabled = true;
@@ -150,26 +198,6 @@ namespace Zwroty
                 l1.Visibility = Visibility.Visible;
             else if (txtENG.Text == "")
                 l2.Visibility = Visibility.Visible;
-        }
-
-        private void listZwroty_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            btnUsun.IsEnabled = true;
-        }
-
-        private void btnUsun_Click(object sender, RoutedEventArgs e)
-        {
-            baza.getZwroty().RemoveAt(listZwroty.SelectedIndex);
-            listZwroty.Items.RemoveAt(listZwroty.SelectedIndex);
-            btnUsun.IsEnabled = false;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-            btnN1.IsEnabled = true;
-            btnN2.IsEnabled = true;
-
         }
     }
 }

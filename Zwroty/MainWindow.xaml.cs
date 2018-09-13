@@ -143,11 +143,13 @@ namespace Zwroty
 
         private void btnUsun_Click(object sender, RoutedEventArgs e)
         {
+            File.Delete(App.bazy.getBazy().ElementAt(lista.SelectedIndex).getNazwa() + ".dat");
+
             App.bazy.getBazy().RemoveAt(lista.SelectedIndex);
             lista.Items.RemoveAt(lista.SelectedIndex);
             btnUsun.IsEnabled = false;
             btnOtworz.IsEnabled = false;
-
+            
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -166,6 +168,26 @@ namespace Zwroty
 
             this.Close();
 
+        }
+
+        private void btnTEST_Click(object sender, RoutedEventArgs e)
+        {
+            TEST test = new TEST(this);
+
+            this.Visibility = Visibility.Collapsed;
+            test.Show();
+        }
+
+        public void exit()
+        {
+            if (App.exit == true)
+                this.Close();
+        }
+
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (App.exit == true)
+                this.Close();
         }
     }
 }

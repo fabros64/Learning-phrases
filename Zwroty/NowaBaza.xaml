@@ -6,14 +6,18 @@
         xmlns:local="clr-namespace:Zwroty"
         mc:Ignorable="d"
         Title="Nowa baza" Height="540" Width="640" ResizeMode="CanMinimize" Closed="Window_Closed">
-    <Grid Margin="0,0,0,1">
+    <Grid Margin="0,0,0,1" KeyDown="Grid_KeyDown">
         <Label Content="Nazwa" HorizontalAlignment="Left" Margin="103,25,0,0" VerticalAlignment="Top" Height="23"/>
         <TextBox x:Name="txtNazwa" HorizontalAlignment="Left" Height="33" Margin="174,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="424" TextChanged="TextBox_TextChanged"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="290,78,0,0" VerticalAlignment="Top" Width="27" Height="28" RenderTransformOrigin="0.78,0.061"/>
+        <Button x:Name="btnRev" Content="Rev" HorizontalAlignment="Left" Margin="290,78,0,0" VerticalAlignment="Top" Width="27" Height="28" RenderTransformOrigin="0.78,0.061" Foreground="#FF110202" Click="btnRev_Click">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
         <TextBox x:Name="txtPL" HorizontalAlignment="Left" Height="46" Margin="19,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="277"/>
         <TextBox x:Name="txtENG" HorizontalAlignment="Left" Height="46" Margin="312,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="299"/>
-        <Label Content="PL" HorizontalAlignment="Left" Margin="115,78,0,0" VerticalAlignment="Top"/>
-        <Label Content="ENG" HorizontalAlignment="Left" Margin="470,78,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lPL" Content="PL" HorizontalAlignment="Left" Margin="115,78,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lENG" Content="ENG" HorizontalAlignment="Left" Margin="470,78,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="listZwroty" HorizontalAlignment="Left" Height="226" Margin="19,214,0,0" VerticalAlignment="Top" Width="509" SelectionChanged="listZwroty_SelectionChanged" FontSize="20"/>
         <Button x:Name="btnDodaj" Content="Dodaj" HorizontalAlignment="Left" Margin="271,175,0,0" VerticalAlignment="Top" Width="75" Click="btnDodaj_Click"/>
         <Button x:Name="btnUsun" Content="Usuń" HorizontalAlignment="Left" Margin="545,308,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="btnUsun_Click"/>

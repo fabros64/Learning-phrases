@@ -51,6 +51,7 @@ namespace Zwroty
             }
         }
 
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             window.Close();
