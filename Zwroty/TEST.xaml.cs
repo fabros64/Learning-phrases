@@ -28,6 +28,7 @@ namespace Zwroty
         Window window;
         string[] wynikowe;
         List<int> bledy;
+        List<string> bledySTR;
 
         public TEST(Poszczegolna_Baza baza, Window window)
         {
@@ -52,6 +53,7 @@ namespace Zwroty
            
             ile++;
             bledy = new List<int>();
+            bledySTR = new List<string>();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -61,7 +63,15 @@ namespace Zwroty
 
         private void Testowanie()
         {
+            int pkt = 0;
             wynikowe[i] = sprENG.Text;
+
+            //if (baza.getZwroty().ElementAt(i).getENG().ToUpper().Equals(wynikowe[i].ToUpper()))
+            //    pkt++;
+            //else
+            //{
+            //    bledy.Add(i);
+            //}
 
             if (ile < baza.getZwroty().Count)
             {
@@ -77,7 +87,7 @@ namespace Zwroty
 
             else
             {
-                int pkt = 0;
+                
 
                 for(int j=0; j < baza.getZwroty().Count; j++)
                 {
@@ -86,10 +96,11 @@ namespace Zwroty
                     else
                     {
                         bledy.Add(j);
+                        bledySTR.Add(wynikowe[j]);
                     }
                 }
 
-                Wynik wynik = new Wynik(baza.getZwroty().Count, pkt, bledy, baza);
+                Wynik wynik = new Wynik(baza.getZwroty().Count, pkt, bledy, baza, bledySTR, this);
                 this.Content = wynik.Content;
             }
         }
