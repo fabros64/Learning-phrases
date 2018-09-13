@@ -25,9 +25,10 @@ namespace Zwroty
         Poszczegolna_Baza baza = new Poszczegolna_Baza();
         Button otworz, usun;
         StreamWriter writer;
+        Button b1, b2;
         
 
-        public NowaBaza(Button btn1, Button btn2, ListBox lista, Button otworz, Button usun, StreamWriter writer)
+        public NowaBaza(Button btn1, Button btn2, ListBox lista, Button otworz, Button usun, StreamWriter writer, Button b1, Button b2)
         {
             InitializeComponent();
             btnN1 = btn1;
@@ -35,6 +36,8 @@ namespace Zwroty
             this.otworz = otworz;
             this.usun = usun;
             this.writer = writer;
+            this.b1 = b1;
+            this.b2 = b2;
 
             lista2 = lista;
 
@@ -58,7 +61,9 @@ namespace Zwroty
             SolidColorBrush myBrush = new SolidColorBrush(Colors.FloralWhite);
             item.Background = myBrush;
             item.HorizontalAlignment = HorizontalAlignment.Stretch;
-            lista2.FontSize = 20;
+            lista2.FontSize = 28;
+
+            
 
             if (txtNazwa.Text == "")
                 l3.Visibility = Visibility.Visible;
@@ -102,6 +107,9 @@ namespace Zwroty
             btnN2.IsEnabled = true;
 
             this.Close();
+
+            //b1.IsEnabled = true;
+            //b2.IsEnabled = true;
         }
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)

@@ -113,7 +113,7 @@ namespace Zwroty
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NowaBaza nb = new NowaBaza(btnNowa, btnTEST, lista, btnOtworz, btnUsun, writer);
+            NowaBaza nb = new NowaBaza(btnNowa, btnTEST, lista, btnOtworz, btnUsun, writer, btnOtworz, btnUsun);
             nb.Left = this.Left + this.Width - nb.Width - (this.Width - nb.Width)/2;
             nb.Top = this.Top + this.Height - nb.Height - (this.Height - nb.Height)/2;
             nb.Show();
@@ -172,10 +172,10 @@ namespace Zwroty
 
         private void btnTEST_Click(object sender, RoutedEventArgs e)
         {
-            TEST test = new TEST(this);
+            //TEST test = new TEST(this);
 
-            this.Visibility = Visibility.Collapsed;
-            test.Show();
+            //this.Visibility = Visibility.Collapsed;
+            //test.Show();
         }
 
         public void exit()
@@ -188,6 +188,12 @@ namespace Zwroty
         {
             if (App.exit == true)
                 this.Close();
+        }
+
+        private void lista_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            btnOtworz.IsEnabled = true;
+            btnUsun.IsEnabled = true;
         }
     }
 }
