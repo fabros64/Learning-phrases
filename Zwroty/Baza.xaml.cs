@@ -106,12 +106,13 @@ namespace Zwroty
 
         private void btnTEST_Click(object sender, RoutedEventArgs e)
         {
-            TEST test = new TEST(baza);
+            TEST test = new TEST(baza, this);
 
             test.Left = this.Left + this.Width / 13 + 2;
             test.Top = this.Top + this.Height / 6;
 
             test.Show();
+            this.Visibility = Visibility.Collapsed;
         }
 
         private void Window_Closing(object sender, EventArgs e)

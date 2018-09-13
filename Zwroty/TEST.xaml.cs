@@ -25,26 +25,33 @@ namespace Zwroty
         Poszczegolna_Baza baza;
         int ile = 0;
         int[] wylosowane;
+        Window window;
+        string[] wynikowe;
+        List<int> bledy;
 
-        public TEST(Poszczegolna_Baza baza)
+        public TEST(Poszczegolna_Baza baza, Window window)
         {
             InitializeComponent();
 
             this.baza = baza;
+            this.window = window;
 
             tab = new int[baza.getZwroty().Count];
+            wynikowe = new string[baza.getZwroty().Count];
 
             random = new Random();
             i = random.Next(0, baza.getZwroty().Count);
 
             wylosowane = new int[baza.getZwroty().Count];
             wylosowane[0] = i;
+
             Losowanie();
             
 
             zwrotPL.Text = baza.getZwroty().ElementAt(i).getPL();
            
             ile++;
+            bledy = new List<int>();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -54,7 +61,7 @@ namespace Zwroty
 
         private void Testowanie()
         {
-            sprENG.Text = "";
+            wynikowe[i] = sprENG.Text;
 
             if (ile < baza.getZwroty().Count)
             {
@@ -63,11 +70,27 @@ namespace Zwroty
                 zwrotPL.Text = baza.getZwroty().ElementAt(i).getPL();
 
                 ile++;
+
+                wynikowe[i] = sprENG.Text;
+                sprENG.Text = "";
             }
 
             else
             {
+                int pkt = 0;
 
+                for(int j=0; j < baza.getZwroty().Count; j++)
+                {
+                    if (baza.getZwroty().ElementAt(j).getENG().ToUpper().Equals(wynikowe[j].ToUpper()))
+                        pkt++;
+                    else
+                    {
+                        bledy.Add(j);
+                    }
+                }
+
+                Wynik wynik = new Wynik(baza.getZwroty().Count, pkt, bledy, baza);
+                this.Content = wynik.Content;
             }
         }
 
@@ -106,6 +129,11 @@ namespace Zwroty
             {
                 Testowanie();
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            window.Visibility = Visibility.Visible;
         }
     }
 }

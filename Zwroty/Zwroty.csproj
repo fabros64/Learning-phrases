@@ -89,6 +89,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Wynik.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NowaBaza.xaml.cs">
@@ -97,6 +101,9 @@
     <Compile Include="Poszczegolna_Baza.cs" />
     <Compile Include="TEST.xaml.cs">
       <DependentUpon>TEST.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Wynik.xaml.cs">
+      <DependentUpon>Wynik.xaml</DependentUpon>
     </Compile>
     <Compile Include="Zwrot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
