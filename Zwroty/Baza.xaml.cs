@@ -25,7 +25,6 @@ namespace Zwroty
         ListBox lista;
         Poszczegolna_Baza baza;
         StreamWriter writer;
-        Window w2;
 
         public Baza(Window window, ListBox lista, Button b1, Button b2, StreamWriter writer)
         {
@@ -107,7 +106,7 @@ namespace Zwroty
 
         private void btnTEST_Click(object sender, RoutedEventArgs e)
         {
-            TEST_WEWNETRZNY test = new TEST_WEWNETRZNY();
+            TEST test = new TEST(baza);
 
             test.Left = this.Left + this.Width / 13 + 2;
             test.Top = this.Top + this.Height / 6;

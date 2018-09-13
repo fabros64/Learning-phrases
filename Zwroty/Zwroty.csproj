@@ -85,7 +85,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TEST_WEWNETRZNY.xaml">
+    <Page Include="TEST.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -95,8 +95,8 @@
       <DependentUpon>NowaBaza.xaml</DependentUpon>
     </Compile>
     <Compile Include="Poszczegolna_Baza.cs" />
-    <Compile Include="TEST_WEWNETRZNY.xaml.cs">
-      <DependentUpon>TEST_WEWNETRZNY.xaml</DependentUpon>
+    <Compile Include="TEST.xaml.cs">
+      <DependentUpon>TEST.xaml</DependentUpon>
     </Compile>
     <Compile Include="Zwrot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
