@@ -109,6 +109,7 @@ namespace Zwroty
         {
             btnOtworz.IsEnabled = true;
             btnUsun.IsEnabled = true;
+            btnTEST.IsEnabled = true;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -172,10 +173,10 @@ namespace Zwroty
 
         private void btnTEST_Click(object sender, RoutedEventArgs e)
         {
-            //TEST test = new TEST(this);
+            TEST test = new TEST(App.bazy.getBazy().ElementAt(lista.SelectedIndex), this);
 
-            //this.Visibility = Visibility.Collapsed;
-            //test.Show();
+            this.Visibility = Visibility.Collapsed;
+            test.Show();
         }
 
         public void exit()
@@ -192,8 +193,8 @@ namespace Zwroty
 
         private void lista_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            btnOtworz.IsEnabled = true;
-            btnUsun.IsEnabled = true;
+            //btnOtworz.IsEnabled = true;
+            //btnUsun.IsEnabled = true;
         }
     }
 }

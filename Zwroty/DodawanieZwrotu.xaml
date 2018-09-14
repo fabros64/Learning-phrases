@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Zwroty"
         mc:Ignorable="d"
         Title="DodawanieZwrotu" Height="200" Width="640" ResizeMode="NoResize" Closing="Window_Closing">
-    <Grid>
+    <Grid KeyDown="Grid_KeyDown">
         <TextBox x:Name="txtPL" HorizontalAlignment="Left" Height="33" Margin="28,73,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="270"/>
         <TextBox x:Name="txtENG" HorizontalAlignment="Left" Height="33" Margin="333,73,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="270"/>
         <Label Content="PL" HorizontalAlignment="Left" Margin="134,42,0,0" VerticalAlignment="Top"/>

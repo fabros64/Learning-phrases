@@ -34,6 +34,7 @@ namespace Zwroty
             InitializeComponent();
             w1 = window;
             txtBaza.Content = lista.Items.GetItemAt(lista.SelectedIndex).ToString().Substring(37);
+           
 
             this.b1 = b1;
             this.b2 = b2;

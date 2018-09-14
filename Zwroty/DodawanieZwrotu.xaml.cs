@@ -44,9 +44,31 @@ namespace Zwroty
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
+            Dodawanie();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            dodawanie.IsEnabled = true;
+            this.Close();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            dodawanie.IsEnabled = true;
+        }
+
+        private void Grid_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+                Dodawanie();
+        }
+
+        private void Dodawanie()
+        {
             if (txtPL.Text != "" && txtENG.Text != "")
             {
-                
+
                 warning1.Visibility = Visibility.Hidden;
                 warning2.Visibility = Visibility.Hidden;
 
@@ -77,7 +99,7 @@ namespace Zwroty
 
                 writer2.Close();
                 stream2.Close();
-                
+
                 this.Close();
             }
 
@@ -103,17 +125,6 @@ namespace Zwroty
                 warning1.Visibility = Visibility.Visible;
             else if (txtENG.Text == "")
                 warning2.Visibility = Visibility.Visible;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            dodawanie.IsEnabled = true;
-            this.Close();
-        }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            dodawanie.IsEnabled = true;
         }
     }
 }
