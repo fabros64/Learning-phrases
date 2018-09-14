@@ -126,5 +126,20 @@ namespace Zwroty
             else if (txtENG.Text == "")
                 warning2.Visibility = Visibility.Visible;
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (lPL.Content.ToString().Equals("PL"))
+            {
+                lPL.Content = "ENG";
+                lENG.Content = "PL";
+            }
+
+            else
+            {
+                lPL.Content = "PL";
+                lENG.Content = "ENG";
+            }
+        }
     }
 }

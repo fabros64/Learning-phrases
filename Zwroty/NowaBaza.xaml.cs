@@ -96,7 +96,7 @@ namespace Zwroty
             }
 
             btnN1.IsEnabled = true;
-            btnN2.IsEnabled = true;
+            btnN2.IsEnabled = false;
 
             
         }
