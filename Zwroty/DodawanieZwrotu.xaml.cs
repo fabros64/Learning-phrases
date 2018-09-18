@@ -78,6 +78,8 @@ namespace Zwroty
                 SolidColorBrush myBrush = new SolidColorBrush(Colors.FloralWhite);
                 item.Background = myBrush;
                 item.HorizontalAlignment = HorizontalAlignment.Stretch;
+                item.FontSize = 24;
+
                 lista.Items.Add(item);
 
                 baza.Dodaj_Zwrot(txtPL.Text, txtENG.Text);

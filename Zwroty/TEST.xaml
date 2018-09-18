@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:Zwroty"
         mc:Ignorable="d"
         Title="Test Bazy" Height="400" Width="640" ResizeMode="CanMinimize" Closing="Window_Closing">
-    <Grid KeyDown="Grid_KeyDown">
-        <TextBlock x:Name="zwrotPL" HorizontalAlignment="Left" Margin="269,71,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="24"/>
-        <TextBox x:Name="sprENG" HorizontalAlignment="Left" Height="33" Margin="20,158,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="594" FontSize="20"/>
+    <Grid KeyDown="Grid_KeyDown" Background="FloralWhite">
+        <TextBlock x:Name="zwrotPL" HorizontalAlignment="Center" Margin="10,71,10,0"  Text="TextBlock" VerticalAlignment="Top" FontSize="24" Width="614" TextAlignment="Center"/>
+        <TextBox x:Name="sprENG" HorizontalAlignment="Left" Height="62" Margin="20,158,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="594" FontSize="20"/>
         <Button Content="Zatwierdź" HorizontalAlignment="Left" Margin="255,246,0,0" VerticalAlignment="Top" Width="101" Height="43" Click="Button_Click"/>
         <Label x:Name="CountPytania" Content="" HorizontalAlignment="Left" Margin="483,20,0,0" VerticalAlignment="Top" FontSize="16"/>
 

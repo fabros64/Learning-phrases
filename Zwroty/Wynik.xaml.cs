@@ -35,7 +35,7 @@ namespace Zwroty
             {
                 ListBoxItem item2 = new ListBoxItem();
                 item2.Content = baza.getZwroty().ElementAt(item).getPL() + " - " + baza.getZwroty().ElementAt(item).getENG();
-                SolidColorBrush myBrush = new SolidColorBrush(Colors.FloralWhite);
+                SolidColorBrush myBrush = new SolidColorBrush(Colors.LightCyan);
                 item2.Background = myBrush;
                 item2.HorizontalAlignment = HorizontalAlignment.Stretch;
 
@@ -43,7 +43,7 @@ namespace Zwroty
 
                 ListBoxItem item3 = new ListBoxItem();
                 item3.Content = bledySTR.ElementAt(i++);
-                SolidColorBrush myBrush2 = new SolidColorBrush(Colors.FloralWhite);
+                SolidColorBrush myBrush2 = new SolidColorBrush(Colors.LightCyan);
                 item3.Background = myBrush2;
                 item3.HorizontalAlignment = HorizontalAlignment.Stretch;
 

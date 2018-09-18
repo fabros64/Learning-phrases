@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:Zwroty"
         mc:Ignorable="d"
         Title="Baza" Height="600" Width="800" ResizeMode="CanMinimize" Closing="Window_Closing" Closed="Window_Closed">
-    <Grid>
-        <Label x:Name="txtBaza" Content="Baza" HorizontalAlignment="Left" Margin="246,10,0,0" VerticalAlignment="Top" FontSize="24" RenderTransformOrigin="0.493,1.162" Foreground="#FF518A9B" Opacity="0.8" FontWeight="Bold"/>
-        <ListBox x:Name="listBaza" HorizontalAlignment="Left" Height="409" Margin="51,68,0,0" VerticalAlignment="Top" Width="650" SelectionChanged="listBaza_SelectionChanged" FontSize="20" Background="FloralWhite" FontFamily="Alef"/>
+    <Grid Background = "BlanchedAlmond" >
+        <Label x:Name="txtBaza" Content="Baza" HorizontalAlignment="Center" Margin="107,10,93,0" VerticalAlignment="Top" FontSize="24" RenderTransformOrigin="0.493,1.162" Foreground="#FF518A9B" Opacity="0.8" FontWeight="Bold" Width="594" HorizontalContentAlignment="Center"/>
+        <ListBox x:Name="listBaza" HorizontalAlignment="Left" Height="409" Margin="51,68,0,0" VerticalAlignment="Top" Width="650" SelectionChanged="listBaza_SelectionChanged" FontSize="20" Background="LightGray" FontFamily="Alef" BorderThickness="2"/>
         <Button x:Name="btnUsun2" Content="Usuń zwrot" HorizontalAlignment="Left" Margin="706,216,0,0" VerticalAlignment="Top" Width="76" Height="56" IsEnabled="False" Click="btnUsun2_Click"/>
         <Button x:Name="btnTEST" Content="TEST" HorizontalAlignment="Left" Margin="51,502,0,0" VerticalAlignment="Top" Width="182" Height="45" Click="btnTEST_Click"/>
         <Button x:Name="btnDodawanie" Content="Dodaj nowy zwrot" HorizontalAlignment="Left" Margin="378,502,0,0" VerticalAlignment="Top" Width="236" Height="45" Click="Button_Click_1"/>

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Nauka zwrotów" Height="600" Width="800" ResizeMode="CanMinimize" Closed="Window_Closed" IsVisibleChanged="Window_IsVisibleChanged">
     <Grid Background="BlanchedAlmond" Margin="0,0,0,-48">
-        <ListBox x:Name="lista" HorizontalAlignment="Center" Height="403" Margin="60,75,64,0" VerticalAlignment="Top" Width="668" Background="LightGray" SelectionChanged="ListBox_SelectionChanged" BorderThickness="5" ContextMenuClosing="lista_ContextMenuClosing" FontSize="28" FontStretch="Medium" MouseDown="lista_MouseDown" Padding="0,-1,0,0" FontFamily="Batang">
+        <ListBox x:Name="lista" HorizontalAlignment="Center" Height="403" Margin="61,75,67,0" VerticalAlignment="Top" Width="666" Background="LightGray" SelectionChanged="ListBox_SelectionChanged" BorderThickness="5" ContextMenuClosing="lista_ContextMenuClosing" FontSize="28" FontStretch="Medium" MouseDown="lista_MouseDown" Padding="0,-1,0,0" FontFamily="Batang" MouseDoubleClick="lista_MouseDoubleClick" KeyDown="lista_KeyDown">
         </ListBox>
         <Button x:Name="btnNowa" Content="Nowa baza" HorizontalAlignment="Left" Margin="446,494,0,0" VerticalAlignment="Top" Width="252" Height="51" Background="GreenYellow" Click="Button_Click"/>
         <Button x:Name="btnTEST" Content="TEST BAZY" HorizontalAlignment="Left" Margin="78,494,0,0" VerticalAlignment="Top" Width="256" Height="51" Background="CadetBlue" Click="btnTEST_Click" IsEnabled="False"/>
@@ -18,6 +18,12 @@
                 <DropShadowEffect/>
             </Label.Effect>
         </Label>
+        <Button x:Name="Edit" HorizontalAlignment="Left" Margin="727,85,0,0" VerticalAlignment="Top" Width="41" Height="34" RenderTransformOrigin="-0.135,-0.22" IsEnabled="False" Visibility="Hidden" Click="Edit_Click">
+            <StackPanel>
+                <Image Source="edit.jpg" RenderTransformOrigin="0.348,0.5" Height="32" Stretch="UniformToFill" Width="35"/>
+
+            </StackPanel>
+        </Button>
 
     </Grid>
 </Window>

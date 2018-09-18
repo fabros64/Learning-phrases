@@ -41,8 +41,19 @@ namespace Zwroty
 
             baza = App.bazy.getBazy().ElementAt<Poszczegolna_Baza>(lista.SelectedIndex);
 
-            for (int i=0; i < App.bazy.getBazy().ElementAt<Poszczegolna_Baza>(lista.SelectedIndex).getZwroty().Count; i++)
-                listBaza.Items.Add(App.bazy.getBazy().ElementAt<Poszczegolna_Baza>(lista.SelectedIndex).getZwroty().ElementAt<Zwrot>(i).konkatenacja());
+            for (int i = 0; i < App.bazy.getBazy().ElementAt<Poszczegolna_Baza>(lista.SelectedIndex).getZwroty().Count; i++)
+            {
+                ListBoxItem item = new ListBoxItem();
+                item.Content = App.bazy.getBazy().ElementAt<Poszczegolna_Baza>(lista.SelectedIndex).getZwroty().ElementAt<Zwrot>(i).konkatenacja();
+                SolidColorBrush myBrush = new SolidColorBrush(Colors.FloralWhite);
+                item.Background = myBrush;
+                item.HorizontalAlignment = HorizontalAlignment.Stretch;
+                item.FontSize = 24;
+                
+
+                listBaza.Items.Add(item);
+
+            }
 
             baza = App.bazy.getBazy().ElementAt<Poszczegolna_Baza>(lista.SelectedIndex);
         }

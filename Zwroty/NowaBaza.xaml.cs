@@ -26,9 +26,10 @@ namespace Zwroty
         Button otworz, usun;
         StreamWriter writer;
         Button b1, b2;
+        FileStream bazy;
         
 
-        public NowaBaza(Button btn1, Button btn2, ListBox lista, Button otworz, Button usun, StreamWriter writer, Button b1, Button b2)
+        public NowaBaza(Button btn1, Button btn2, ListBox lista, Button otworz, Button usun, StreamWriter writer, Button b1, Button b2, FileStream bazy)
         {
             InitializeComponent();
             btnN1 = btn1;
@@ -38,6 +39,8 @@ namespace Zwroty
             this.writer = writer;
             this.b1 = b1;
             this.b2 = b2;
+            this.bazy = bazy;
+            
 
             lista2 = lista;
 
@@ -64,41 +67,49 @@ namespace Zwroty
             lista2.FontSize = 28;
 
             
+           
+            
 
             if (txtNazwa.Text == "")
                 l3.Visibility = Visibility.Visible;
 
             else if (txtNazwa.Text != "")
             {
-                l3.Visibility = Visibility.Hidden;
-                lista2.Items.Add(item);
 
-                baza.setNazwa(txtNazwa.Text);
-
-                App.bazy.Dodaj_Baze(baza);
-
-
-
-               writer.WriteLine(txtNazwa.Text);
-
-                FileStream stream2 = new FileStream(txtNazwa.Text + ".dat", FileMode.OpenOrCreate);
-                writer = new StreamWriter(stream2);
-
-                foreach (var item2 in baza.getZwroty())
+                try
                 {
-                    writer.WriteLine(item2.getPL());
-                    writer.WriteLine(item2.getENG());
+                    FileStream CzyJestBaza = new FileStream(txtNazwa.Text + ".dat", FileMode.Open);
+                    MessageBox.Show(this, "Baza o podanej nazwie już istnieje!", "Błąd");
+                    
+                    CzyJestBaza.Close();
                 }
-                                    
-                this.Close();
-                writer.Close();
-                stream2.Close();
+                catch
+                {
+                    lista2.Items.Add(item);
+                    baza.setNazwa(txtNazwa.Text);
+                    App.bazy.Dodaj_Baze(baza);
+                    writer.WriteLine(txtNazwa.Text);
+
+                    FileStream stream2 = new FileStream(txtNazwa.Text + ".dat", FileMode.OpenOrCreate);
+                    writer = new StreamWriter(stream2);
+
+                    foreach (var item2 in baza.getZwroty())
+                    {
+                        writer.WriteLine(item2.getPL());
+                        writer.WriteLine(item2.getENG());
+                    }
+
+                    this.Close();
+                    writer.Close();
+                    stream2.Close();
+                }
+
+                l3.Visibility = Visibility.Hidden;
+ 
             }
 
             btnN1.IsEnabled = true;
             btnN2.IsEnabled = false;
-
-            
         }
 
         private void Window_Closed(object sender, EventArgs e)

@@ -110,11 +110,15 @@ namespace Zwroty
             btnOtworz.IsEnabled = true;
             btnUsun.IsEnabled = true;
             btnTEST.IsEnabled = true;
+            Edit.IsEnabled = true;
+
+            Edit.Margin = new Thickness(727, Mouse.GetPosition(lista).Y+Edit.Height+20, 0, 0);
+            Edit.Visibility = Visibility.Visible;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NowaBaza nb = new NowaBaza(btnNowa, btnTEST, lista, btnOtworz, btnUsun, writer, btnOtworz, btnUsun);
+            NowaBaza nb = new NowaBaza(btnNowa, btnTEST, lista, btnOtworz, btnUsun, writer, btnOtworz, btnUsun, stream);
             nb.Left = this.Left + this.Width - nb.Width - (this.Width - nb.Width)/2;
             nb.Top = this.Top + this.Height - nb.Height - (this.Height - nb.Height)/2;
             nb.Show();
@@ -195,6 +199,46 @@ namespace Zwroty
         {
             //btnOtworz.IsEnabled = true;
             //btnUsun.IsEnabled = true;
+        }
+
+        private void lista_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Baza baza = new Baza(this, lista, btnNowa, btnTEST, writer);
+            this.Visibility = Visibility.Collapsed;
+            baza.Top = this.Top;
+            baza.Left = this.Left;
+            baza.Show();
+
+        }
+
+        private void lista_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+            {
+                File.Delete(App.bazy.getBazy().ElementAt(lista.SelectedIndex).getNazwa() + ".dat");
+
+                App.bazy.getBazy().RemoveAt(lista.SelectedIndex);
+                lista.Items.RemoveAt(lista.SelectedIndex);
+                btnUsun.IsEnabled = false;
+                btnOtworz.IsEnabled = false;
+            }
+
+            else if(e.Key == Key.Enter)
+            {
+                Baza baza = new Baza(this, lista, btnNowa, btnTEST, writer);
+                this.Visibility = Visibility.Collapsed;
+                baza.Top = this.Top;
+                baza.Left = this.Left;
+                baza.Show();
+            }
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            Nazwa nazwa = new Nazwa(App.bazy.getBazy().ElementAt(lista.SelectedIndex).getNazwa(), lista, stream, Edit);
+            nazwa.Top = Edit.Margin.Top;
+            nazwa.Left = this.Left + lista.Width/2 + 30;
+            nazwa.Show();
         }
     }
 }
