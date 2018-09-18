@@ -21,8 +21,7 @@ namespace Zwroty
     /// </summary>
     /// 
                             
-    
-
+   
     public partial class MainWindow : Window
     {
         //internal static List<Poszczegolna_Baza> Bazy { get => bazy; set => bazy = value; }
@@ -39,13 +38,11 @@ namespace Zwroty
 
             try
             {
-                stream = new FileStream("bazy" + ".dat", FileMode.Open);
-                
+                stream = new FileStream("bazy" + ".dat", FileMode.Open); 
             }
             catch
             {
-                stream = new FileStream("bazy" + ".dat", FileMode.Create);
-                
+                stream = new FileStream("bazy" + ".dat", FileMode.Create);          
             }
 
             writer = new StreamWriter(stream);
@@ -235,8 +232,8 @@ namespace Zwroty
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            Nazwa nazwa = new Nazwa(App.bazy.getBazy().ElementAt(lista.SelectedIndex).getNazwa(), lista, stream, Edit);
-            nazwa.Top = Edit.Margin.Top;
+            Nazwa nazwa = new Nazwa(App.bazy.getBazy().ElementAt(lista.SelectedIndex).getNazwa(), lista, stream, Edit, btnTEST);
+            nazwa.Top = this.Top + Edit.Margin.Top;
             nazwa.Left = this.Left + lista.Width/2 + 30;
             nazwa.Show();
         }

@@ -23,9 +23,9 @@ namespace Zwroty
         string nazwa;
         ListBox lista;
         FileStream stream;
-        Button edit;
+        Button edit, test;
 
-        public Nazwa(string nazwa, ListBox lista, FileStream stream, Button edit)
+        public Nazwa(string nazwa, ListBox lista, FileStream stream, Button edit, Button test)
         {
             InitializeComponent();
 
@@ -33,6 +33,7 @@ namespace Zwroty
             this.lista = lista;
             this.stream = stream;
             this.edit = edit;
+            this.test = test;
 
             txtNazwa.Text = nazwa;
             edit.IsEnabled = false;
@@ -47,6 +48,11 @@ namespace Zwroty
         {
             if(e.Key == Key.Enter)
             Zmiana_Nazwy();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            edit.IsEnabled = true;
         }
 
         private void Zmiana_Nazwy()
@@ -71,6 +77,8 @@ namespace Zwroty
             }
 
             edit.Visibility = Visibility.Hidden;
+
+            test.IsEnabled = false;
 
             this.Close();
         }

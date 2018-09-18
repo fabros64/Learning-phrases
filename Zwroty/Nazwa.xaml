@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Zwroty"
         mc:Ignorable="d"
-        Title="Nazwa" Height="137.119" Width="376.454" ResizeMode="NoResize">
+        Title="Nazwa" Height="137.119" Width="376.454" ResizeMode="NoResize" Closed="Window_Closed">
     <Grid Height="106" VerticalAlignment="Top" KeyDown="Grid_KeyDown">
         <Label Content="Nazwa" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" FontSize="12"/>
         <TextBox x:Name="txtNazwa" HorizontalAlignment="Left" Height="26" Margin="68,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" FontSize="14"/>
