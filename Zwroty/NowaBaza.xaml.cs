@@ -115,7 +115,7 @@ namespace Zwroty
         private void Window_Closed(object sender, EventArgs e)
         {
             btnN1.IsEnabled = true;
-            btnN2.IsEnabled = true;
+            btnN2.IsEnabled = false;
 
             this.Close();
 
@@ -167,7 +167,7 @@ namespace Zwroty
         {
             this.Close();
             btnN1.IsEnabled = true;
-            btnN2.IsEnabled = true;
+            btnN2.IsEnabled = false;
 
         }
 

@@ -15,6 +15,7 @@
         <ListBox x:Name="listBłąd" HorizontalAlignment="Left" Height="262" Margin="367,94,0,0" VerticalAlignment="Top" Width="253" FontSize="20" Background="LightGray" />
         <Label Content="Miejsca, gdzie popełniono błąd:" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.737,0.615" FontSize="18"/>
         <Button Content="Zakończ i wróć" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="97" Height="37" Click="Button_Click"/>
+        <Button x:Name="btnTestZBledow" Content="Test z błędów" HorizontalAlignment="Left" Margin="523,10,0,0" VerticalAlignment="Top" Width="97" Height="37" Click="btnTestZBledow_Click" />
 
     </Grid>
 </Page>

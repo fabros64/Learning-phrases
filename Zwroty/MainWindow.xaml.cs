@@ -109,7 +109,7 @@ namespace Zwroty
             btnTEST.IsEnabled = true;
             Edit.IsEnabled = true;
 
-            Edit.Margin = new Thickness(727, Mouse.GetPosition(lista).Y+Edit.Height+20, 0, 0);
+            Edit.Margin = new Thickness(727, Mouse.GetPosition(lista).Y + Edit.Height + 20, 0, 0);
             Edit.Visibility = Visibility.Visible;
         }
 
@@ -174,6 +174,7 @@ namespace Zwroty
 
         private void btnTEST_Click(object sender, RoutedEventArgs e)
         {
+            
             TEST test = new TEST(App.bazy.getBazy().ElementAt(lista.SelectedIndex), this);
 
             this.Visibility = Visibility.Collapsed;
