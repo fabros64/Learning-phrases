@@ -238,5 +238,13 @@ namespace Zwroty
             nazwa.Left = this.Left + lista.Width/2 + 30;
             nazwa.Show();
         }
+
+        private void BtnTranslator_Click(object sender, RoutedEventArgs e)
+        {
+            Translator translator = new Translator(BtnTranslator, this);
+            translator.Left = this.Left + this.Width - translator.Width - (this.Width - translator.Width) / 2;
+            translator.Top = this.Top + this.Height - translator.Height - (this.Height - translator.Height) / 2;
+            translator.Show();
+        }
     }
 }
